@@ -79,6 +79,18 @@ Once connected, ask Claude naturally:
 
 > "Find all pages using the template /conf/mysite/settings/wcm/templates/landing-page"
 
+## Unregister from Claude Code
+
+```bash
+claude mcp remove aem
+```
+
+Then restart Claude Code. To confirm it's gone:
+
+```bash
+claude mcp list
+```
+
 ## Development
 
 ```bash
