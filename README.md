@@ -2,6 +2,36 @@
 
 A TypeScript MCP server that connects Claude Code to a local AEM instance, enabling AI-assisted querying and browsing of AEM content.
 
+## How it works
+
+```
+You (natural language)
+       │
+       ▼
+ Claude Code (AI)
+       │  decides to call a tool, e.g. search_content
+       │  communicates over stdio (MCP protocol)
+       ▼
+ aem-mpc-server (this project)
+       │  translates the tool call into an HTTP request
+       │  e.g. GET /bin/querybuilder.json?fulltext=checkout&path=/content
+       ▼
+ Local AEM (localhost:4502)
+       │  executes the query and returns JSON
+       ▼
+ aem-mpc-server
+       │  returns the result back over stdio
+       ▼
+ Claude Code
+       │  reads the JSON and answers you in natural language
+       ▼
+You
+```
+
+When you ask Claude something like _"find all pages about checkout under /content/mysite"_, Claude decides which tool to call and what arguments to pass. This server receives that call, builds the equivalent AEM HTTP request, and returns the raw result. Claude then interprets the JSON and responds in plain language.
+
+The server is spawned as a subprocess by Claude Code on startup — you never run it manually.
+
 ## Tools
 
 | Tool | Description |
