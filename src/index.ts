@@ -5,9 +5,14 @@ import {
   ListToolsRequestSchema,
 } from "@modelcontextprotocol/sdk/types.js";
 
-const AEM_BASE_URL = process.env.AEM_BASE_URL ?? "http://localhost:4502";
-const AEM_USER = process.env.AEM_USER ?? "admin";
-const AEM_PASS = process.env.AEM_PASS ?? "admin";
+const AEM_BASE_URL = process.env.AEM_BASE_URL;
+const AEM_USER = process.env.AEM_USER;
+const AEM_PASS = process.env.AEM_PASS;
+
+if (!AEM_BASE_URL || !AEM_USER || !AEM_PASS) {
+  process.stderr.write("Error: AEM_BASE_URL, AEM_USER, and AEM_PASS env vars are required\n");
+  process.exit(1);
+}
 
 const authHeader = `Basic ${Buffer.from(`${AEM_USER}:${AEM_PASS}`).toString("base64")}`;
 

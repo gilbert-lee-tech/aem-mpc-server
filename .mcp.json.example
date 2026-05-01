@@ -6,8 +6,8 @@
       "args": ["dist/index.js"],
       "env": {
         "AEM_BASE_URL": "http://localhost:4502",
-        "AEM_USER": "admin",
-        "AEM_PASS": "admin"
+        "AEM_USER": "your-username",
+        "AEM_PASS": "your-password"
       }
     }
   }
