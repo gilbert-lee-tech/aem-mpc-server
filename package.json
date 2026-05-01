@@ -1,5 +1,5 @@
 {
-  "name": "aem-mpc-server",
+  "name": "aem-mcp-server",
   "version": "1.0.0",
   "description": "TypeScript MCP server for querying/searching AEM content via QueryBuilder API",
   "type": "module",

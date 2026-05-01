@@ -33,7 +33,7 @@ async function aemFetch(path: string, params?: URLSearchParams): Promise<unknown
 }
 
 const server = new Server(
-  { name: "aem-mpc-server", version: "1.0.0" },
+  { name: "aem-mcp-server", version: "1.0.0" },
   { capabilities: { tools: {} } }
 );
 

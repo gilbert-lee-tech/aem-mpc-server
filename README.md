@@ -1,4 +1,4 @@
-# aem-mpc-server
+# aem-mcp-server
 
 A TypeScript MCP server that connects Claude Code to a local AEM instance, enabling AI-assisted querying and browsing of AEM content.
 
@@ -12,14 +12,14 @@ You (natural language)
        │  decides to call a tool, e.g. search_content
        │  communicates over stdio (MCP protocol)
        ▼
- aem-mpc-server (this project)
+ aem-mcp-server (this project)
        │  translates the tool call into an HTTP request
        │  e.g. GET /bin/querybuilder.json?fulltext=checkout&path=/content
        ▼
  Local AEM (localhost:4502)
        │  executes the query and returns JSON
        ▼
- aem-mpc-server
+ aem-mcp-server
        │  returns the result back over stdio
        ▼
  Claude Code
@@ -50,8 +50,8 @@ The server is spawned as a subprocess by Claude Code on startup — you never ru
 **1. Clone and install**
 
 ```bash
-git clone git@github.com:gilbert-lee-tech/aem-mpc-server.git
-cd aem-mpc-server
+git clone git@github.com:gilbert-lee-tech/aem-mcp-server.git
+cd aem-mcp-server
 npm install
 ```
 
@@ -89,7 +89,7 @@ npm run build
 **4. Register with Claude Code**
 
 ```bash
-claude mcp add --transport stdio aem node -- /path/to/aem-mpc-server/dist/index.js
+claude mcp add --transport stdio aem node -- /path/to/aem-mcp-server/dist/index.js
 ```
 
 Then restart Claude Code. Verify the connection:
