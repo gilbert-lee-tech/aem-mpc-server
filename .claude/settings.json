@@ -1,15 +1,3 @@
 {
-  "mcpServers": {
-    "aem": {
-      "type": "stdio",
-      "command": "node",
-      "args": ["dist/index.js"],
-      "cwd": "/Users/waichitlee/projects/aem/git/aem-mpc-server",
-      "env": {
-        "AEM_BASE_URL": "http://localhost:4502",
-        "AEM_USER": "admin",
-        "AEM_PASS": "admin"
-      }
-    }
-  }
+  "enableAllProjectMcpServers": true
 }
